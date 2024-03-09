@@ -379,6 +379,7 @@ footer {
 .footer-wrapper {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
 }
@@ -393,7 +394,7 @@ footer {
 
 .footer-logo ul {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .footer-logo i {
@@ -408,12 +409,17 @@ footer {
 
 .footer-sayfa ul {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  justify-content: space-between;
+  width: 35rem;
 }
 
 .footer-sayfa li {
-  margin: 2rem;
+  margin-top: 3rem;
+}
+
+.footer-sayfa a {
+  color: white;
 }
 .group h4 {
   margin-bottom: 2rem;
