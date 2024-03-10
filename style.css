@@ -234,6 +234,11 @@ nav {
   justify-content: space-between;
 }
 
+.bar {
+  display: none !important
+;
+}
+
 .nav-right a:hover {
   color: red;
   border-bottom: 2px solid red;
@@ -305,6 +310,8 @@ nav h4 {
   right: 0;
 }
 
+/* .hammadde */
+
 .hammadde {
   text-align: center;
   margin-top: 5rem;
@@ -315,15 +322,12 @@ nav h4 {
 }
 
 .hammadde h4 {
-  border-bottom: 5px solid red;
-  width: 20%;
   margin-left: auto;
   margin-right: auto;
 }
 
 .maddeler {
   padding-top: 5rem;
-  opacity: 1;
 }
 .maddeler-icerik {
   display: flex;
@@ -341,6 +345,10 @@ nav h4 {
   padding-bottom: 5rem;
 }
 
+.video iframe {
+  width: 100rem;
+  height: 60rem;
+}
 .sektorler {
   text-align: center;
   margin-top: 5rem;
@@ -351,8 +359,6 @@ nav h4 {
   padding-bottom: 5rem;
 }
 .sektor-baslik {
-  border-bottom: 5px solid red;
-  width: 15%;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10rem;
@@ -368,6 +374,8 @@ nav h4 {
   width: 75%;
   border-radius: 2rem;
 }
+
+/* footer */
 
 footer {
   color: white;
@@ -403,7 +411,6 @@ footer {
 }
 
 .footer-sayfa {
-  width: 20%;
   text-align: center;
 }
 
@@ -429,4 +436,108 @@ footer {
   display: flex;
   justify-content: space-between;
   width: 11rem;
+}
+
+/* responsive */
+
+@media (max-width: 1399.98px) {
+}
+
+@media (max-width: 1199.98px) {
+  .maddeler-icerik {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin-top: 2rem;
+    color: white;
+  }
+  .video iframe {
+    width: 80rem;
+    height: 30rem;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .container {
+    margin-left: 7rem;
+    margin-right: 7rem;
+  }
+
+  .banner p {
+    display: none;
+  }
+  .nav-right ul:first-child {
+    display: none;
+  }
+  .bar {
+    display: block !important;
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav-right {
+    width: auto;
+  }
+
+  .video iframe {
+    width: 70rem;
+    height: 25rem;
+  }
+
+  .sektor-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .sektor img {
+    width: 40%;
+  }
+
+  .footer-wrapper {
+    flex-direction: column;
+  }
+  .footer-wrapper div {
+    margin-bottom: 2rem;
+  }
+  .footer-logo div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .container {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  .video iframe {
+    width: 50rem;
+    height: 20rem;
+  }
+}
+@media (max-width: 575.98px) {
+  h4 {
+    font-size: 2rem;
+  }
+  .container {
+    margin-left: 0rem;
+    margin-right: 0rem;
+  }
+  .banner {
+    display: flex;
+    flex-direction: column;
+  }
+  .banner-right {
+    display: none;
+  }
+
+  .video iframe {
+    width: 30rem;
+    height: 12rem;
+  }
+
+  .footer-sayfa ul {
+    flex-direction: column;
+  }
 }
