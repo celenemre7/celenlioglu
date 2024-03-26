@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>İçerik Oluşturma</title>
+    <link rel="stylesheet" href="icerik.css" />
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Admin Panel</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="#">Kullanici Yönetimi</a></li>
+        <li><a href="#">Site Ayarlari</a></li>
+        <li><a href="#">Çikis Yap</a></li>
+      </ul>
+    </nav>
+    <h1>İçerik Oluşturma</h1>
+
+    <!-- Yeni İçerik Oluşturma Formu -->
+    <form id="createContentForm">
+      <div class="form-group">
+        <label for="title">Başlık:</label>
+        <input type="text" id="title" name="title" required />
+      </div>
+      <div class="form-group">
+        <label for="content">İçerik:</label>
+        <textarea id="content" name="content" rows="4" required></textarea>
+      </div>
+      <button type="submit">İçerik Oluştur</button>
+    </form>
+    <footer>
+      <p>&copy; 2024 Admin Panel</p>
+    </footer>
+
+    <script src="script.js">
+              document.getElementById("createContentForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Formun varsayılan gönderme işlemini engelle
+
+        // Formdaki verileri al
+        var title = document.getElementById("title").value;
+        var content = document.getElementById("content").value;
+
+        // Yeni içerik oluştur
+        var newContent = document.createElement("div");
+        newContent.classList.add("content-item");
+        newContent.innerHTML = "<h2>" + title + "</h2><p>" + content + "</p>";
+
+        // İçerik listesine ekle
+        var contentList = document.getElementById("contentList");
+        contentList.appendChild(newContent);
+
+        // Formu temizle
+        document.getElementById("title").value = "";
+        document.getElementById("content").value = "";
+      });
+    </script>
+  </body>
+</html>
