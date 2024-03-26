@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="panel.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Admin Panel</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="#">Kullanici Yönetimi</a></li>
+        <li><a href="#">Site Ayarlari</a></li>
+        <li><a href="#">Çikis Yap</a></li>
+      </ul>
+    </nav>
+    <main>
+      <section>
+        <h2>Hoş Geldiniz!</h2>
+        <p>Bu admin paneliyle site içeriğini yönetebilirsiniz.</p>
+      </section>
+    </main>
+    <div class="container">
+      <h2>Kullanici Girişi</h2>
+      <form id="loginForm">
+        <div class="form-group">
+          <label for="username">Kullanici Adi:</label>
+          <input type="text" id="username" name="username" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Şifre:</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Giriş Yap</button>
+      </form>
+      <p id="message"></p>
+      <a id="contentManagementLink" href="#">İçerik Yönetimi</a>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Admin Panel</p>
+    </footer>
+
+    <script>
+      document
+        .getElementById("loginForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Formun varsayılan gönderme işlemini engelle
+
+          // Kullanıcı adı ve şifreyi al
+          var username = document.getElementById("username").value;
+          var password = document.getElementById("password").value;
+
+          // Örnek kullanıcı adı ve şifre
+          var correctUsername = "kullanici";
+          var correctPassword = "sifre";
+
+          // Kullanıcı adı ve şifreyi kontrol et
+          if (username === correctUsername && password === correctPassword) {
+            // Giriş başarılı
+            document.getElementById("message").innerHTML = "Giriş başarılı!";
+            // İçerik yönetimi linkini görünür yap
+            document.getElementById("contentManagementLink").style.display =
+              "inline";
+          } else {
+            // Giriş başarısız
+            document.getElementById("message").innerHTML =
+              "Kullanıcı adı veya şifre yanlış!";
+            // İçerik yönetimi linkini gizle
+            document.getElementById("contentManagementLink").style.display =
+              "none";
+          }
+        });
+
+      // Sayfa yüklendiğinde İçerik Yönetimi linkini gizle
+      document.getElementById("contentManagementLink").style.display = "none";
+    </script>
+  </body>
+</html>
