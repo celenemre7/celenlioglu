@@ -14,9 +14,9 @@
     <nav>
       <ul>
         <li><a href="index.html">Ana Sayfa</a></li>
-        <li><a href="#">Kullanici Yönetimi</a></li>
-        <li><a href="#">Site Ayarlari</a></li>
-        <li><a href="#">Çikis Yap</a></li>
+        <li><a href="#">Kullanıcı Yönetimi</a></li>
+        <li><a href="#">Site Ayarları</a></li>
+        <li><a href="#">Çıkış Yap</a></li>
       </ul>
     </nav>
     <h1>İçerik Oluşturma</h1>
@@ -37,27 +37,51 @@
       <p>&copy; 2024 Admin Panel</p>
     </footer>
 
-    <script src="script.js">
-              document.getElementById("createContentForm").addEventListener("submit", function(event) {
-        event.preventDefault(); // Formun varsayılan gönderme işlemini engelle
+    <script>
+      document
+        .getElementById("createContentForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Formun varsayılan gönderme işlemini engelle
 
-        // Formdaki verileri al
-        var title = document.getElementById("title").value;
-        var content = document.getElementById("content").value;
+          // Formdaki verileri al
+          var title = document.getElementById("title").value;
+          var content = document.getElementById("content").value;
 
-        // Yeni içerik oluştur
-        var newContent = document.createElement("div");
-        newContent.classList.add("content-item");
-        newContent.innerHTML = "<h2>" + title + "</h2><p>" + content + "</p>";
+          // Verileri URL kodlaması ile düzgün bir şekilde kodla
+          var encodedTitle = encodeURIComponent(title);
+          var encodedContent = encodeURIComponent(content);
 
-        // İçerik listesine ekle
-        var contentList = document.getElementById("contentList");
-        contentList.appendChild(newContent);
+          // Sunucuya gönderilecek veriyi oluştur
+          var requestData =
+            "title=" + encodedTitle + "&content=" + encodedContent;
 
-        // Formu temizle
-        document.getElementById("title").value = "";
-        document.getElementById("content").value = "";
-      });
+          // Sunucuya veri gönder
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+              console.log("İçerik başarıyla sunucuya gönderildi.");
+            }
+          };
+          xhttp.open("POST", "http://localhost:3000/createContent", true);
+          xhttp.setRequestHeader(
+            "Content-type",
+            "application/x-www-form-urlencoded"
+          );
+          xhttp.send(requestData);
+
+          // Yeni içerik oluştur
+          var newContent = document.createElement("div");
+          newContent.classList.add("content-item");
+          newContent.innerHTML = "<h2>" + title + "</h2><p>" + content + "</p>";
+
+          // İçerik listesine ekle
+          var contentList = document.getElementById("contentList");
+          contentList.appendChild(newContent);
+
+          // Formu temizle
+          document.getElementById("title").value = "";
+          document.getElementById("content").value = "";
+        });
     </script>
   </body>
 </html>

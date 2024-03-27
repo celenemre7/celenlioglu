@@ -30,13 +30,18 @@ button:hover {
 }
 
 .content-item {
+  border: 1px solid #ccc;
+  padding: 10px;
   margin-bottom: 20px;
 }
 
 .content-item h2 {
+  font-size: 18px;
   margin-bottom: 10px;
 }
 
 .content-item p {
-  font-size: 16px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
 }
